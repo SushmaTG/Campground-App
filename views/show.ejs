@@ -1,0 +1,57 @@
+<% include partials/header %>
+
+<div class="container">
+	<div class="row">
+		<div class="col-md-3">
+			<p class="lead">Yelpcamp</p>
+			<div class="list-group">
+				<li class="list-group-item active">Info 1</li>
+				<li class="list-group-item">Info 2</li>
+				<li class="list-group-item">Info 3</li>
+			</div>
+		</div>
+	
+
+	
+		<div class="col-md-9">
+			<h1 style="margin: 2px auto;"><%= campgrounds.name %></h1>
+
+				<div class="thumbnail">
+					<img class="img-responsive" src="<%= campgrounds.image %>" >
+				</div>
+				<div class="well">
+					<div class="caption-full" style="margin: 25px auto;">
+						<h4 class="pull-right"><%= campgrounds.name%></br>$9.00/pc</h4>
+						<p><em>Submitted by </br><%= currentUser %></em></p>
+					</div>
+					
+					<div class="caption-full" style="margin: 25px auto;">
+						<p><%= campgrounds.description %></p>
+					</div>
+				</div>
+			<div class="well">
+
+				<% campgrounds.comments.forEach(function (comment){ %>
+				<div class="row">
+					<div class="col-md-12">
+						<p>
+							<strong><%= comment.author.username %></strong> - <%= comment.text %>
+						</p>
+					</div>
+				</div>
+				<% }) %>
+
+				<div class="ui main text container segment">
+					<form class="ui form"  method="POST" action="/campgrounds/<%= campgrounds._id%>">
+					
+					<div class="field">
+						<label>Your Comment</label>
+						<textarea name="comments[text]"></textarea>
+					</div>
+						<button>Submit!</button>
+					</form>
+				</div>
+			</div>
+		</div>
+</div>
+<% include partials/footer %>
