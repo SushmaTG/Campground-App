@@ -22,10 +22,10 @@ var campgroundRoutes = require("./routes/campgrounds")
 var authRoutes = require("./routes/auth")
 	
 //	seedDB();
-
+mongoose.connect(process.env.DATABASEURL)
 //connecting to the database
 //mongoose.connect("mongodb://localhost/campgrounds")
-mongoose.connect("mongodb://rusty:rusty@ds117889.mlab.com:17889/myblogapp")
+//mongoose.connect("mongodb://rusty:rusty@ds117889.mlab.com:17889/myblogapp")
 
 var app = express()
 
@@ -58,8 +58,12 @@ app.use(commentRoutes)
 app.use(campgroundRoutes)
 app.use(authRoutes)
 
+console.log(process.env.PORT)
+console.log(process.env.IP)
+
+
 //route to listen on the server port
-app.listen(process.env.PORT, process.env.IP, function(){
+app.listen(process.env.PORT, function(){
 	console.log("Server Connected!")
 })
 
