@@ -20,7 +20,6 @@ var express = require("express"),
 var commentRoutes = require("./routes/comments")
 var campgroundRoutes = require("./routes/campgrounds")
 var authRoutes = require("./routes/auth")
-var port = process.env.PORT || CONFIG.port;
 	
 //	seedDB();
 
@@ -60,4 +59,13 @@ app.use(campgroundRoutes)
 app.use(authRoutes)
 
 //route to listen on the server port
-app.listen(port)
+app.listen(process.env.PORT, process.env.IP, function(){
+	console.log("Server Connected!")
+})
+
+
+
+
+
+
+
