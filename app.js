@@ -24,7 +24,8 @@ var authRoutes = require("./routes/auth")
 //	seedDB();
 
 //connecting to the database
-mongoose.connect("mongodb://localhost/campgrounds")
+//mongoose.connect("mongodb://localhost/campgrounds")
+mongoose.connect("mongodb://rusty:rusty@ds117889.mlab.com:17889/myblogapp")
 
 var app = express()
 

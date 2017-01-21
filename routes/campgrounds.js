@@ -12,7 +12,7 @@ router.get("/campgrounds", function(req, res){
 			console.log(err)
 		}else{
 			res.render("campgrounds", { 
-				currentUser : currentUser.username,
+				currentUser : currentUser,
 				campgrounds : getAllCampGrounds
 			});
 		}
